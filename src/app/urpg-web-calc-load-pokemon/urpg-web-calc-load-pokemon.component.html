@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Choose Pokemon</h1>
+        </div>
+    </div>
+</div>
+<div class="container" *ngFor="let team of battle.getTeams()">
+    <div class="row" *ngFor="let trainer of team.trainers">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h4>{{ trainer.name }}</h4>
+                </div>
+            </div>
+            <div class="row" *ngFor="let pokemon of trainer.pokemon; index as pokeNum">
+                <div class="col" *ngIf="battle.teamType != 'Open'">
+                    Lead?
+                </div>
+                <div class="col">
+                    <select class="form-control"
+                        [(ngModel)] = "pokemon.name">
+                        <option *ngFor="let name of calc.pokemonNames">{{ name }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary"
+                (click)="onLoadedPokemon();">
+                DONE
+            </button>
+        </div>
+    </div>
+</div>

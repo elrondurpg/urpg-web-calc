@@ -1,0 +1,17 @@
+<div class="container" *ngFor="let team of battleData.currentFrame.teams">
+    <div class="row" *ngFor="let trainer of team.trainers">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h4>{{ trainer.name }}</h4>
+          </div>
+        </div>
+        <div class="row" *ngFor="let id of trainer.activePokemon">
+          <div class="col">
+            {{ trainer.getPokemon(id).name }}
+          </div>
+        </div>
+      </div>
+    </div>  
+</div>  
+<button class="btn btn-primary" (click)="print()">print</button>

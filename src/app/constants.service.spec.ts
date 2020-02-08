@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UrpgServerService } from './urpg-server.service';
+import { ConstantsService } from './constants.service';
 
-describe('UrpgServerService', () => {
+describe('ConstantsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: UrpgServerService = TestBed.get(UrpgServerService);
+    const service: ConstantsService = TestBed.get(ConstantsService);
     expect(service).toBeTruthy();
   });
 });

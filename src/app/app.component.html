@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <select class="form-control">
-        <option selected="selected" disabled hidden>Choose a Pokemon</option>
-        <option *ngFor="let name of server.getPokemonNames()">{{ name }}</option>
-      </select>
-    </div>
-    <div class="col">
-      col 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      col 1
-    </div>
-    <div class="col">
-      col 2
-    </div>
-  </div>
-</div>
+<urpg-web-calc-welcome *ngIf="state == 'WELCOME'"
+  (startBattle)="startBattle($event)"
+  (loadBattle)="loadBattle($event)"
+  (testBattle)="testBattle($event)">
+</urpg-web-calc-welcome>
+
+<urpg-web-calc-load-battle *ngIf="state == 'LOADBATTLE'"></urpg-web-calc-load-battle>
+
+<urpg-web-calc-load-rules *ngIf="state == 'LOADRULES'"
+  [battle]="battle"
+  (loadedRules)="loadedRules($event);">
+</urpg-web-calc-load-rules>
+
+<urpg-web-calc-load-pokemon *ngIf="state == 'LOADPOKEMON'"
+  [battle]="battle"
+  (loadedPokemon)="loadedPokemon($event)">
+</urpg-web-calc-load-pokemon>
+
+<urpg-web-calc-battle *ngIf="state == 'BATTLE'"
+  [battle]="battle"
+></urpg-web-calc-battle>

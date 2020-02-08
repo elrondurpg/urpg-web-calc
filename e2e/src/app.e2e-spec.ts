@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('urpg-battlebot app is running!');
+    expect(page.getTitleText()).toEqual('urpg-web-calc app is running!');
   });
 
   afterEach(async () => {

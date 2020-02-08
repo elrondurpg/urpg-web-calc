@@ -1,5 +1,5 @@
 {
-  "name": "urpg-battlebot",
+  "name": "urpg-web-calc",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,6 +22,8 @@
     "bootstrap": "^4.4.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "urpg-calculator": "file:../urpg-calculator",
+    "urpg.js": "github:Monbrey/urpg.js",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -31,7 +33,7 @@
     "@angular/language-service": "~8.2.14",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.10.59",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",

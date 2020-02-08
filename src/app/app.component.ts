@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { UrpgCalculatorService } from './urpg-calculator.service';
-import { UrpgServerService } from './urpg-server.service';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Battle } from 'urpg-calculator/dist/classes/Battle';
+import { UrpgCalculator } from 'urpg-calculator/dist/index';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,37 @@ import { UrpgServerService } from './urpg-server.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private pokemonNames:object;
+  private state:string = 'WELCOME';
+  private battle:Battle = new Battle();
 
-  constructor(
-    private calc:UrpgCalculatorService,
-    private server:UrpgServerService) {}
+  constructor(@Inject(UrpgCalculator) private calc:UrpgCalculator) {
+
+  }
 
   ngOnInit() {
-    this.pokemonNames = this.server.getPokemonNames();
+    console.log(this.battle);
+    this.calc.initialize();
+  }
+
+  startBattle() {
+    this.state="LOADRULES";
+  }
+
+  loadedRules($event) {
+    this.state="LOADPOKEMON";
+    this.battle = $event;
+  }
+
+  loadedPokemon($event) {
+    this.state="BATTLE";
+    this.battle = $event;
+  }
+
+  loadBattle() {
+    this.state="LOADBATTLE";
+  }
+
+  testBattle() {
+    this.state="BATTLE";
   }
 }

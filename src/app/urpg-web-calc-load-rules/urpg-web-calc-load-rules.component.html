@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Set rules</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select class="form-control" 
+                [(ngModel)] = "battle.battleType"
+                (change)="battle.chooseBattleType();">
+                <option *ngFor="let type of getBattleTypes()">{{ type }}</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control" [(ngModel)] = "battle.teamType">
+                <option *ngFor="let type of getTeamTypes()">{{ type }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select class="form-control"
+                [(ngModel)] = "battle.pokemonPerTrainer">
+                <option *ngFor="let num of getValidNumsPokemonPerTrainer()">{{ num }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row" *ngIf="battle.battleType == 'FFA'">
+        <div class="col">
+            <button class="btn btn-primary" (click)="battle.addFfaTrainer();">Add a trainer</button>
+        </div>
+    </div>
+    <div class="row" *ngFor="let team of battle.getTeams(); index as teamNum">
+        <div class="col">
+            <h4 *ngIf="battle.trainersPerTeam != 1">Team {{ teamNum + 1 }}</h4>
+            <div class="row" *ngFor="let trainer of team.trainers; index as trainerNum">
+                <div class="col">
+                    <button class="btn btn-primary" 
+                        *ngIf="battle.battleType == 'FFA'"
+                        (click)="battle.getTeams().splice(teamNum, 1)">
+                        Remove
+                    </button>
+                </div>
+                <div class="col">
+                    Trainer {{ battle.trainersPerTeam == 1 ? teamNum + 1 : trainerNum + 1 }}
+                </div>
+                <div class="col">
+                    <input type="text" 
+                        placeholder="Trainer {{ battle.trainersPerTeam == 1 ? teamNum + 1 : trainerNum + 1 }}'s name" 
+                        [(ngModel)] = "trainer.name"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary" (click)="onLoadedRules();">DONE</button>
+        </div>
+    </div>
+</div>
