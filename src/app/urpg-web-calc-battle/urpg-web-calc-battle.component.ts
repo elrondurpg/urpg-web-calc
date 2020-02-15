@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UrpgCalculator } from 'urpg-calculator';
 import { Battle } from 'urpg-calculator/dist/classes/Battle';
+import { Trainer } from 'urpg-calculator/dist/classes/Trainer';
 
 @Component({
   selector: 'urpg-web-calc-battle',
@@ -13,11 +14,11 @@ export class UrpgWebCalcBattleComponent implements OnInit {
   constructor(private calc:UrpgCalculator) { }
 
   ngOnInit() {
+    this.battle.start();
   }
 
-  print() {
-    console.log("print");
-    console.log(this.battle);
+  execute() {
+    this.battle.execute();
   }
 
 }

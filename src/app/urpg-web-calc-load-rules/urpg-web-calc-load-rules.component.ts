@@ -15,8 +15,6 @@ export class UrpgWebCalcLoadRulesComponent implements OnInit {
   constructor(private contstants:ConstantsService) { }
 
   ngOnInit() {
-    console.log("Loading rules for battle:");
-    console.log(this.battle);
     /*if (this.contstants.debug) {
       this.battleType = "Singles";
       this.teamType = "Open";
