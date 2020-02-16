@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UrpgCalculator } from 'urpg-calculator';
+import { UrpgBattleService } from 'urpg-calculator';
 import { Battle } from 'urpg-calculator/dist/classes/Battle';
 
 @Component({
@@ -10,7 +10,7 @@ import { Battle } from 'urpg-calculator/dist/classes/Battle';
 export class UrpgWebCalcBattleComponent implements OnInit {
   @Input() battle:Battle;
 
-  constructor(private calc:UrpgCalculator) { }
+  constructor(private calc:UrpgBattleService) { }
 
   ngOnInit() {
   }

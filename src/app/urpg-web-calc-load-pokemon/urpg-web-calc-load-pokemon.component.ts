@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { ConstantsService } from '../constants.service';
 import { Battle } from 'urpg-calculator/dist/classes/Battle';
-import { UrpgCalculator } from 'urpg-calculator';
+import { UrpgBattleService } from 'urpg-calculator';
 
 @Component({
   selector: 'urpg-web-calc-load-pokemon',
@@ -14,7 +14,7 @@ export class UrpgWebCalcLoadPokemonComponent implements OnInit {
 
   constructor(
     private constants:ConstantsService,
-    private calc:UrpgCalculator) { }
+    private calc:UrpgBattleService) { }
 
   ngOnInit() {
   }

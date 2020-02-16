@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Battle } from 'urpg-calculator/dist/classes/Battle';
-import { UrpgCalculator } from 'urpg-calculator/dist/index';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +10,12 @@ export class AppComponent implements OnInit {
   private state:string = 'WELCOME';
   private battle:Battle = new Battle();
 
-  constructor(@Inject(UrpgCalculator) private calc:UrpgCalculator) {
+  constructor() {
 
   }
 
   ngOnInit() {
-    console.log(this.battle);
-    this.calc.initialize();
+    
   }
 
   startBattle() {
@@ -32,6 +30,7 @@ export class AppComponent implements OnInit {
   loadedPokemon($event) {
     this.state="BATTLE";
     this.battle = $event;
+    this.battle.start();
   }
 
   loadBattle() {

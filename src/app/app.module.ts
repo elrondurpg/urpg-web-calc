@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UrpgClient } from 'urpg.js';
-import { UrpgCalculator } from 'urpg-calculator';
+import { UrpgBattleService } from 'urpg-calculator';
 import { UrpgWebCalcWelcomeComponent } from './urpg-web-calc-welcome/urpg-web-calc-welcome.component';
 import { UrpgWebCalcLoadRulesComponent } from './urpg-web-calc-load-rules/urpg-web-calc-load-rules.component';
 import { UrpgWebCalcLoadPokemonComponent } from './urpg-web-calc-load-pokemon/urpg-web-calc-load-pokemon.component';
@@ -34,7 +34,7 @@ const server = new UrpgClient(undefined);
       provide: UrpgClient, 
       useValue: server
     },
-    UrpgCalculator,
+    UrpgBattleService,
     ConstantsService
   ],
   bootstrap: [AppComponent]
