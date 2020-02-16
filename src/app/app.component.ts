@@ -14,9 +14,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   startBattle() {
     this.state="LOADRULES";
